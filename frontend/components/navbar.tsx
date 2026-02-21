@@ -2,6 +2,7 @@
 
 import { Leaf, ShoppingCart } from "lucide-react"
 import {Lobster_Two} from "next/font/google"
+import { Button } from "./ui/button"
 
 
 const lobsterTwo = Lobster_Two({
@@ -33,17 +34,17 @@ export function AppHeader({
             </div>
           </div>
 
-          <nav className="flex items-center gap-1 rounded-lg bg-muted p-1">
-            <button
+          <nav className="flex items-center gap-4 rounded-lg  p-1">
+            <Button
               onClick={() => onTabChange("compare")}
-              className={`rounded-md px-3.5 py-1.5 text-sm font-medium transition-all  text-white bg-black ${
+              className={`rounded-md px-3.5 py-1.5 text-sm font-medium transition-all    hover:text-gray-200 ${
                 activeTab === "compare"
                   ? "bg-card text-card-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Compare
-            </button>
+              Login
+            </Button>
             <button
               onClick={() => onTabChange("cart")}
               className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-all flex items-center gap-1.5 text-black ${
