@@ -3,6 +3,7 @@
 import { Leaf, ShoppingCart } from "lucide-react"
 import {Lobster_Two} from "next/font/google"
 import { Button } from "./ui/button"
+import Link from "next/link"
 
 
 const lobsterTwo = Lobster_Two({
@@ -20,7 +21,7 @@ export function AppHeader({
 
     
   return (
-    <header className="sticky top-0 z-50 border-b border-border  backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border  backdrop-blur-sm mb-8">
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-0.5 ">
@@ -45,8 +46,8 @@ export function AppHeader({
             >
               Login
             </Button>
-            <button
-              onClick={() => onTabChange("cart")}
+            <Link
+            href="/cart/select-type"              
               className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-all flex items-center gap-1.5 text-black ${
                 activeTab === "cart"
                   ? "bg-card text-card-foreground shadow-sm"
@@ -60,7 +61,7 @@ export function AppHeader({
                   {itemCount}
                 </span>
               )} */}
-            </button>
+            </Link>
           </nav>
         </div>
       </div>
