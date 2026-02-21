@@ -21,7 +21,7 @@ export function AppHeader({
 
     
   return (
-    <header className="sticky top-0 z-50 border-b border-border  backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border  backdrop-blur-sm mb-8">
       <div className="mx-auto max-w-5xl px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-0.5 ">
