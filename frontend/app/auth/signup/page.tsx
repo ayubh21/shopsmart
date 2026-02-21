@@ -19,16 +19,10 @@ export default function Login() {
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // const { data, error } = await authClient.signUp.email({
-    //   email, // user email address
-    //   password, // user password -> min 8 characters by default
-    //   name: "N/A",
-    //   callbackURL: "/", // A URL to redirect to after the user verifies their email (optional)
-    // });
-
-    const { error } = await authClient.signIn.email({
+    const { error } = await authClient.signUp.email({
       email, // user email address
       password, // user password -> min 8 characters by default
+      name: "N/A",
       callbackURL: "/", // A URL to redirect to after the user verifies their email (optional)
     });
     if (error && error.message) {
@@ -72,9 +66,9 @@ export default function Login() {
             </Field>
             {error && <p className="text-red-600">{error}</p>}
             <Field>
-              <Button type="submit">Login</Button>
+              <Button type="submit">Sign up</Button>
               <FieldDescription className="text-center">
-                Don&apos;t have an account? <a href="#">Sign up</a>
+                Already have an account? <a href="#">Log in</a>
               </FieldDescription>
             </Field>
           </FieldGroup>
