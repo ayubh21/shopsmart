@@ -1,7 +1,7 @@
 "use client"
 
-import { AppHeader } from "@/components/navbar";
 import { useState } from "react";
+import { AppHeader } from "../components/navbar";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"compare" | "cart" >("compare");
