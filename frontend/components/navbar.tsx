@@ -2,6 +2,7 @@
 
 import { Leaf, ShoppingCart } from "lucide-react"
 import {Lobster_Two} from "next/font/google"
+import Link from "next/link"
 
 
 const lobsterTwo = Lobster_Two({
@@ -44,8 +45,8 @@ export function AppHeader({
             >
               Compare
             </button>
-            <button
-              onClick={() => onTabChange("cart")}
+            <Link
+            href="/cart/select-type"              
               className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-all flex items-center gap-1.5 text-black ${
                 activeTab === "cart"
                   ? "bg-card text-card-foreground shadow-sm"
@@ -59,7 +60,7 @@ export function AppHeader({
                   {itemCount}
                 </span>
               )} */}
-            </button>
+            </Link>
           </nav>
         </div>
       </div>
