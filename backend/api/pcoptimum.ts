@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 export class PCOptimumAPI {
-  async searchProducts(keyword: string, storeId: string) {
+  async searchProducts(keyword: string, storeId: string = "1502") {
     let payload = {
       cart: { cartId: "" },
       fulfillmentInfo: {
@@ -70,7 +70,22 @@ export class PCOptimumAPI {
       throw new Error("invalid status code from superstore");
     }
 
-    return await response.json();
+    const jsonResponse = await response.json();
+
+    const data = jsonResponse["layout"]["sections"]["mainContentCollection"]["components"][0]["data"]["productTiles"];
+
+    const products = [];
+    for (let i = 0; i < data.length; i++) {
+      products.push({
+        name: data[i]["title"],
+        description: data[i]["description"],
+        image: data[i]["productImage"][0]["imageUrl"],
+        price: Number(data[i]["pricing"]["price"]), // unsafe, but its fine for now
+        retailer: "superstore"
+      })
+    }
+
+    return products
   }
 
   currentDateFormatted(date = new Date()) {
