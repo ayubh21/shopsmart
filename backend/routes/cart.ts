@@ -86,10 +86,6 @@ cartRoutes.post("/:cartId/", async (req, res, next) => {
     }
 })
 
-export default cartRoutes;
-
-
-
 
 export default cartRoutes;
 
